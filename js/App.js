@@ -136,7 +136,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/insights/platform/approval/";
+/******/ 	__webpack_require__.p = "/apps/approval/";
 /******/
 /******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
 /******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
@@ -2694,8 +2694,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APPROVAL_API_BASE", function() { return APPROVAL_API_BASE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RBAC_API_BASE", function() { return RBAC_API_BASE; });
 //export const APPROVAL_API_BASE = `${process.env.BASE_PATH}/approval/v1`;
-var APPROVAL_API_BASE = "".concat("/r/insights/platform", "/approval/v0.1");
-var RBAC_API_BASE = "".concat("/r/insights/platform", "/rbac/v1");
+var APPROVAL_API_BASE = "".concat("/api", "/approval/v0.1");
+var RBAC_API_BASE = "".concat("/api", "/rbac/v1");
 
 /***/ }),
 
@@ -2761,15 +2761,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Hooks up redux to app.
- *  https://redux.js.org/advanced/usage-with-react-router
- */
+var pathName = window.location.pathname.split('/');
+pathName.shift();
+var release = '/';
+
+if (pathName[0] === 'beta') {
+  release = "/".concat(pathName.shift(), "/");
+}
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
   store: _Utilities_store__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], {
-  basename: "/insights/platform/approval"
+  basename: "".concat(release).concat(pathName[0], "/").concat(pathName[1])
 }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_5__["default"], null))), document.getElementById('root'));
 
 /***/ }),
