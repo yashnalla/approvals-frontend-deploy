@@ -1,6 +1,6 @@
 {
   "app_name": "approval",
-  "src_hash": "851bb44c85dfaaa506b0c306efe87ff44aa41688",
+  "src_hash": "884ecd465cc9b291f6c92fbb762699658d672dca",
   "src_tag": "",
   "src_branch": "ci-stable",
   "npm_info": {
@@ -72,15 +72,20 @@
       "from": "@red-hat-insights/insights-frontend-components@3.39.5",
       "resolved": "https://registry.npmjs.org/@red-hat-insights/insights-frontend-components/-/insights-frontend-components-3.39.5.tgz"
     },
-    "approval_api_jsclient": {
-      "version": "1.0.1",
-      "from": "approval_api_jsclient@1.0.1",
-      "resolved": "https://registry.npmjs.org/approval_api_jsclient/-/approval_api_jsclient-1.0.1.tgz"
+    "@redhat-cloud-services/approval-client": {
+      "version": "1.0.3",
+      "from": "@redhat-cloud-services/approval-client@1.0.3",
+      "resolved": "https://registry.npmjs.org/@redhat-cloud-services/approval-client/-/approval-client-1.0.3.tgz"
     },
     "awesome-debounce-promise": {
       "version": "2.1.0",
       "from": "awesome-debounce-promise@2.1.0",
       "resolved": "https://registry.npmjs.org/awesome-debounce-promise/-/awesome-debounce-promise-2.1.0.tgz"
+    },
+    "axios": {
+      "version": "0.18.0",
+      "from": "axios@0.18.0",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-0.18.0.tgz"
     },
     "babel-core": {
       "version": "7.0.0-bridge.0",
@@ -396,7 +401,7 @@
 },
   "travis": {
     "event_type": "push",
-    "build_number": "30",
-    "build_web_url": "https://travis-ci.org/ManageIQ/approval-ui/builds/513094201"
+    "build_number": "36",
+    "build_web_url": "https://travis-ci.org/ManageIQ/approval-ui/builds/514167550"
   }
 }
