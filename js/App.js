@@ -333,17 +333,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Shared_userLogin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Shared/userLogin */ "./src/Helpers/Shared/userLogin.js");
-/* harmony import */ var _Utilities_Constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Utilities/Constants */ "./src/Utilities/Constants.js");
 
 
 
-
-var userApi = Object(_Shared_userLogin__WEBPACK_IMPORTED_MODULE_2__["getUserApi"])();
+var requestApi = Object(_Shared_userLogin__WEBPACK_IMPORTED_MODULE_2__["getRequestApi"])();
 function fetchRequests() {
-  //return userApi.fetchRequests();
-  return fetch("".concat(_Utilities_Constants__WEBPACK_IMPORTED_MODULE_3__["APPROVAL_API_BASE"], "/requests")).then(function (data) {
-    return data.json();
-  });
+  return requestApi.listRequests();
 }
 function updateRequest(_x) {
   return _updateRequest.apply(this, arguments);
@@ -358,7 +353,7 @@ function _updateRequest() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return userApi.updateRequest(data.id, data);
+            return requestApi.updateRequest(data.id, data);
 
           case 2:
           case "end":
@@ -396,40 +391,48 @@ var scrollToTop = function scrollToTop() {
 /*!*****************************************!*\
   !*** ./src/Helpers/Shared/userLogin.js ***!
   \*****************************************/
-/*! exports provided: getApprovalApi, getUserApi, getRequesterApi, getRbacApi, getGroupApi */
+/*! exports provided: getTemplateApi, getWorkflowApi, getRequestApi, getRbacApi, getGroupApi */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getApprovalApi", function() { return getApprovalApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUserApi", function() { return getUserApi; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRequesterApi", function() { return getRequesterApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTemplateApi", function() { return getTemplateApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getWorkflowApi", function() { return getWorkflowApi; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRequestApi", function() { return getRequestApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRbacApi", function() { return getRbacApi; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getGroupApi", function() { return getGroupApi; });
-/* harmony import */ var _Utilities_Constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Utilities/Constants */ "./src/Utilities/Constants.js");
-/* harmony import */ var approval_api_jsclient__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! approval_api_jsclient */ "./node_modules/approval_api_jsclient/dist/main.js");
-/* harmony import */ var approval_api_jsclient__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(approval_api_jsclient__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Utilities_Constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Utilities/Constants */ "./src/Utilities/Constants.js");
 /* harmony import */ var rbac_api_jsclient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rbac_api_jsclient */ "./node_modules/rbac_api_jsclient/dist/main.js");
 /* harmony import */ var rbac_api_jsclient__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(rbac_api_jsclient__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _redhat_cloud_services_approval_client__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @redhat-cloud-services/approval-client */ "./node_modules/@redhat-cloud-services/approval-client/dist/index.js");
+/* harmony import */ var _redhat_cloud_services_approval_client__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_redhat_cloud_services_approval_client__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
-var approvalClient = approval_api_jsclient__WEBPACK_IMPORTED_MODULE_1__["ApiClient"].instance;
-approvalClient.basePath = _Utilities_Constants__WEBPACK_IMPORTED_MODULE_0__["APPROVAL_API_BASE"];
-var approvalApi = new approval_api_jsclient__WEBPACK_IMPORTED_MODULE_1__["AdminsApi"]();
-var requesterApi = new approval_api_jsclient__WEBPACK_IMPORTED_MODULE_1__["RequestersApi"]();
-var userApi = new approval_api_jsclient__WEBPACK_IMPORTED_MODULE_1__["UsersApi"]();
-function getApprovalApi() {
-  return approvalApi;
+
+
+var responseInterceptor = function responseInterceptor(response) {
+  return response.data ? response.data : response;
+};
+
+var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create();
+axiosInstance.interceptors.response.use(responseInterceptor);
+var workflowApi = new _redhat_cloud_services_approval_client__WEBPACK_IMPORTED_MODULE_3__["WorkflowApi"](undefined, _Utilities_Constants__WEBPACK_IMPORTED_MODULE_1__["APPROVAL_API_BASE"], axiosInstance);
+var requestApi = new _redhat_cloud_services_approval_client__WEBPACK_IMPORTED_MODULE_3__["RequestApi"](undefined, _Utilities_Constants__WEBPACK_IMPORTED_MODULE_1__["APPROVAL_API_BASE"], axiosInstance);
+var templateApi = new _redhat_cloud_services_approval_client__WEBPACK_IMPORTED_MODULE_3__["TemplateApi"](undefined, _Utilities_Constants__WEBPACK_IMPORTED_MODULE_1__["APPROVAL_API_BASE"], axiosInstance);
+function getTemplateApi() {
+  return templateApi;
 }
-function getUserApi() {
-  return userApi;
+function getWorkflowApi() {
+  return workflowApi;
 }
-function getRequesterApi() {
-  return requesterApi;
+function getRequestApi() {
+  return requestApi;
 }
 var rbacClient = rbac_api_jsclient__WEBPACK_IMPORTED_MODULE_2__["ApiClient"].instance;
-rbacClient.basePath = _Utilities_Constants__WEBPACK_IMPORTED_MODULE_0__["RBAC_API_BASE"];
+rbacClient.basePath = _Utilities_Constants__WEBPACK_IMPORTED_MODULE_1__["RBAC_API_BASE"];
 var rbacApi = new rbac_api_jsclient__WEBPACK_IMPORTED_MODULE_2__["AccessApi"]();
 var groupApi = new rbac_api_jsclient__WEBPACK_IMPORTED_MODULE_2__["GroupApi"]();
 function getRbacApi() {
@@ -459,20 +462,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
 /* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Shared_userLogin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Shared/userLogin */ "./src/Helpers/Shared/userLogin.js");
-/* harmony import */ var approval_api_jsclient__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! approval_api_jsclient */ "./node_modules/approval_api_jsclient/dist/main.js");
-/* harmony import */ var approval_api_jsclient__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(approval_api_jsclient__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Utilities_Constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Utilities/Constants */ "./src/Utilities/Constants.js");
 
 
 
-
-
-var approvalApi = Object(_Shared_userLogin__WEBPACK_IMPORTED_MODULE_2__["getApprovalApi"])();
+var workflowApi = Object(_Shared_userLogin__WEBPACK_IMPORTED_MODULE_2__["getWorkflowApi"])();
+var templateApi = Object(_Shared_userLogin__WEBPACK_IMPORTED_MODULE_2__["getTemplateApi"])();
 function fetchWorkflows() {
-  //approvalApi.fetchWorkflows();
-  return fetch("".concat(_Utilities_Constants__WEBPACK_IMPORTED_MODULE_4__["APPROVAL_API_BASE"], "/workflows")).then(function (data) {
-    return data.json();
-  });
+  return workflowApi.listWorkflows();
 }
 function updateWorkflow(_x) {
   return _updateWorkflow.apply(this, arguments);
@@ -487,7 +483,7 @@ function _updateWorkflow() {
         switch (_context.prev = _context.next) {
           case 0:
             _context.next = 2;
-            return approvalApi.updateWorkflow(data.id, data);
+            return workflowApi.updateWorkflow(data.id, data);
 
           case 2:
           case "end":
@@ -499,54 +495,41 @@ function _updateWorkflow() {
   return _updateWorkflow.apply(this, arguments);
 }
 
-function addWorkflow(_x2) {
-  return _addWorkflow.apply(this, arguments);
+function addWorkflow(workflow) {
+  return templateApi.listTemplates().then(function (_ref) {
+    var data = _ref.data;
+
+    // workaround for v1. Need to pass template ID with the workflow. Assigning to first template
+    if (!data[0]) {
+      throw new Error('No template exists');
+    }
+
+    return data[0].id;
+  }).then(function (id) {
+    return workflowApi.addWorkflowToTemplate(id, workflow, {});
+  });
 }
-
-function _addWorkflow() {
-  _addWorkflow = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(
-  /*#__PURE__*/
-  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(data) {
-    var workflowIn;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            workflowIn = new approval_api_jsclient__WEBPACK_IMPORTED_MODULE_3__["WorkflowIn"]();
-            _context2.next = 3;
-            return approvalApi.addWorkflow(data, workflowIn);
-
-          case 3:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2, this);
-  }));
-  return _addWorkflow.apply(this, arguments);
-}
-
-function removeWorkflow(_x3) {
+function removeWorkflow(_x2) {
   return _removeWorkflow.apply(this, arguments);
 }
 
 function _removeWorkflow() {
   _removeWorkflow = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()(
   /*#__PURE__*/
-  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3(workflowId) {
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+  _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2(workflowId) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
       while (1) {
-        switch (_context3.prev = _context3.next) {
+        switch (_context2.prev = _context2.next) {
           case 0:
-            _context3.next = 2;
-            return approvalApi.removeWorkflow(workflowId);
+            _context2.next = 2;
+            return workflowApi.destroyWorkflow(workflowId);
 
           case 2:
           case "end":
-            return _context3.stop();
+            return _context2.stop();
         }
       }
-    }, _callee3, this);
+    }, _callee2, this);
   }));
   return _removeWorkflow.apply(this, arguments);
 }
@@ -2693,8 +2676,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "APPROVAL_API_BASE", function() { return APPROVAL_API_BASE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RBAC_API_BASE", function() { return RBAC_API_BASE; });
-//export const APPROVAL_API_BASE = `${process.env.BASE_PATH}/approval/v1`;
-var APPROVAL_API_BASE = "".concat("/api", "/approval/v0.1");
+var APPROVAL_API_BASE = "".concat("/api", "/approval/v1.0");
 var RBAC_API_BASE = "".concat("/api", "/rbac/v1");
 
 /***/ }),
