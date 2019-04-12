@@ -41,7 +41,7 @@ i.Ansible.is-supported .st0 {
 i.Ansible.is-unsupported {
   cursor: not-allowed; }
   i.Ansible.is-unsupported .st0, i.Ansible.is-unsupported .st1, i.Ansible.is-unsupported .st2 {
-    fill: var(--pf-global--BackgroundColor--disabled); }
+    fill: var(--pf-global--disabled-color--200); }
 
 i.Ansible svg {
   height: var(--pf-global--FontSize--xl);
@@ -883,13 +883,17 @@ button:focus {
 button:focus {
   outline: none; }
 
-.ins-battery svg {
-  height: 18px;
-  height: 1.125rem;
-  line-height: 1; }
+i.ins-battery {
+  display: inline-block;
+  line-height: 0; }
+  i.ins-battery svg {
+    position: relative;
+    position: relative;
+    height: 28px;
+    height: 1.75rem; }
 
 .ins-battery-1 svg path, .ins-battery-low svg path, .ins-battery-info svg path {
-  fill: var(--pf-global--success-color--100); }
+  fill: var(--pf-global--disabled-color--200); }
 
 .ins-battery-2 svg path, .ins-battery-medium svg path, .ins-battery-warn svg path {
   fill: var(--pf-global--warning-color--100); }
@@ -901,7 +905,7 @@ button:focus {
   fill: var(--pf-global--danger-color--100); }
 
 .ins-battery-0 svg path, .ins-battery-null svg path {
-  fill: #d7d7d7; }
+  fill: var(--pf-global--disabled-color--200); }
 
 .ins-tab-layout > .ins-tabs div {
   display: inline-block;
@@ -972,7 +976,7 @@ button:focus {
   animation-iteration-count: infinite;
   animation-name: skeletonGradient;
   animation-timing-function: linear;
-  background: var(--pf-global--BackgroundColor--disabled);
+  background: var(--pf-global--disabled-color--200);
   background: linear-gradient(to right, #f5f5f5 10%, #e8e8e8 18%, #f5f5f5 33%);
   background-size: 1000px 50px;
   background-size: 62.5rem 3.125rem;
@@ -1037,6 +1041,40 @@ button:focus {
   .ins-c-table__empty.is-centered {
     display: flex;
     justify-content: center; }
+
+:root {
+  --ins-color--orange: #ec7a08; }
+
+button:focus {
+  outline: none; }
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg); } }
+
+.ins-c-spinner {
+  display: inline-flex; }
+  .ins-c-spinner.ins-m-center {
+    display: flex;
+    justify-content: center; }
+  .ins-c-spinner:before {
+    content: '';
+    width: 30px;
+    width: 1.875rem;
+    height: 30px;
+    height: 1.875rem;
+    border-radius: 50%;
+    border: 3px solid var(--pf-global--active-color--200);
+    border-top-color: var(--pf-global--active-color--100);
+    animation: spinner 1s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+
+.pf-c-dropdown__menu-item:hover {
+  background-color: inherit !important;
+  outline: inherit !important; }
+
+.pf-c-dropdown__menu-item:focus {
+  background-color: inherit !important;
+  outline: inherit !important; }
 
 :root {
   --ins-color--orange: #ec7a08; }
@@ -1974,7 +2012,7 @@ button:focus {
 
 .ins-c-rules-card a[disabled] {
   cursor: not-allowed;
-  color: var(--pf-global--BackgroundColor--disabled); }
+  color: var(--pf-global--disabled-color--200); }
   .ins-c-rules-card a[disabled]:hover {
     text-decoration: none; }
 
@@ -2002,7 +2040,7 @@ button:focus {
   border: 1px solid #ccc;
   border-radius: 4px; }
   .ins-c-inventory-advisor__card pre code {
-    white-space: normal; }
+    white-space: inherit; }
 
 .ins-c-inventory-advisor__card ol {
   margin-top: 10px;
@@ -2040,16 +2078,17 @@ button:focus {
   .cvetable-toolbar > div {
     align-self: flex-end; }
 
-.space-between-toolbar-items > div {
-  margin-right: 5;
-  align-self: flex-end; }
-  .space-between-toolbar-items > div > form {
-    width: 150px; }
+.space-between-toolbar-items {
+  justify-content: space-between; }
+  .space-between-toolbar-items > div:nth-child(1) {
+    flex: 1.5;
+    padding-right: var(--pf-global--spacer--sm); }
+  .space-between-toolbar-items > div:nth-child(2) {
+    padding-left: var(--pf-global--spacer--sm);
+    flex: 1; }
 
-.filterCVES {
-  min-width: 25%; }
-  .filterCVES > div {
-    align-self: flex-end; }
+.pf-c-pagination.pf-m-footer.ins-c-pagination-next {
+  margin-left: auto; }
 
 #download-report {
   cursor: pointer; }
