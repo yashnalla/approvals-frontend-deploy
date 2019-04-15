@@ -3061,13 +3061,13 @@ var SummaryContent = function SummaryContent(values) {
     className: "data-table-detail heading",
     component: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__["TextVariants"].h5
   }, "Approval Stages"), Object.keys(stages).map(function (key) {
-    return key.startWith('stage') && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__["Text"], {
+    return key.startsWith('stage') && react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__["Text"], {
       key: key,
       className: "data-table-detail content",
       component: _patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__["TextVariants"].p
-    }, key, " : ", values.groupOptions.find(function (group) {
+    }, "".concat(key, " : ").concat(values.groupOptions.find(function (group) {
       return group.value === stages[key];
-    }));
+    }).label));
   })));
 };
 
