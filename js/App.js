@@ -263,21 +263,14 @@ function (_Component) {
         return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_presentational_components_shared_loader_placeholders__WEBPACK_IMPORTED_MODULE_18__["AppPlaceholder"], null);
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_Notifications__WEBPACK_IMPORTED_MODULE_16__["NotificationsPortal"], null), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14__["PageHeader"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["Title"], {
-        size: 'xl',
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_Notifications__WEBPACK_IMPORTED_MODULE_16__["NotificationsPortal"], null), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14__["PageHeader"], {
         style: {
-          margin: 12,
-          padding: 12
+          paddingBottom: 0
         }
-      }, "Approval")), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14__["Main"], {
-        style: {
-          backgroundColor: 'd3d3d3',
-          margin: '0',
-          padding: '0'
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_smart_components_app_tabs_app_tabs__WEBPACK_IMPORTED_MODULE_13__["default"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_Routes__WEBPACK_IMPORTED_MODULE_11__["Routes"], {
-        childProps: this.props
-      }))));
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["Title"], {
+        headingLevel: "h1",
+        size: "2xl"
+      }, "Approval"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_smart_components_app_tabs_app_tabs__WEBPACK_IMPORTED_MODULE_13__["default"], null)), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14__["Main"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_Routes__WEBPACK_IMPORTED_MODULE_11__["Routes"], null)));
     }
   }]);
 
@@ -321,10 +314,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var lodash_some__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash/some */ "./node_modules/lodash/some.js");
-/* harmony import */ var lodash_some__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash_some__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _presentational_components_shared_loader_placeholders__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./presentational-components/shared/loader-placeholders */ "./src/presentational-components/shared/loader-placeholders.js");
-
+/* harmony import */ var _presentational_components_shared_loader_placeholders__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./presentational-components/shared/loader-placeholders */ "./src/presentational-components/shared/loader-placeholders.js");
 
 
 
@@ -385,10 +375,9 @@ InsightsRoute.propTypes = {
  *      component - component to be rendered when a route has been chosen.
  */
 
-var Routes = function Routes(props) {
-  var path = props.childProps.location.pathname;
+var Routes = function Routes() {
   return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_4__["Suspense"], {
-    fallback: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_presentational_components_shared_loader_placeholders__WEBPACK_IMPORTED_MODULE_6__["AppPlaceholder"], null)
+    fallback: react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_presentational_components_shared_loader_placeholders__WEBPACK_IMPORTED_MODULE_5__["AppPlaceholder"], null)
   }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(InsightsRoute, {
     path: paths.requests,
     component: Requests,
@@ -399,16 +388,11 @@ var Routes = function Routes(props) {
     rootClass: "workflows"
   }), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
     render: function render() {
-      return lodash_some__WEBPACK_IMPORTED_MODULE_5___default()(paths, function (p) {
-        return p === path;
-      }) ? null : react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+      return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
         to: paths.workflows
       });
     }
   })));
-};
-Routes.propTypes = {
-  childProps: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.object
 };
 
 /***/ }),
@@ -441,7 +425,7 @@ pathName.shift();
 var release = '/';
 
 if (pathName[0] === 'beta') {
-  release = "/".concat(pathName.shift());
+  release = "/".concat(pathName.shift(), "/");
 }
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
@@ -1077,53 +1061,6 @@ function _removeWorkflow() {
 
 /***/ }),
 
-/***/ "./src/presentational-components/request/requests-filter-toolbar.js":
-/*!**************************************************************************!*\
-  !*** ./src/presentational-components/request/requests-filter-toolbar.js ***!
-  \**************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/filter-toolbar-item */ "./src/presentational-components/shared/filter-toolbar-item.js");
-/* harmony import */ var _shared_toolbarschema_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/toolbarschema.scss */ "./src/presentational-components/shared/toolbarschema.scss");
-/* harmony import */ var _shared_toolbarschema_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_shared_toolbarschema_scss__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-
-
-
-var RequestsFilterToolbar = function RequestsFilterToolbar(_ref) {
-  var onFilterChange = _ref.onFilterChange,
-      filterValue = _ref.filterValue,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["onFilterChange", "filterValue"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_4__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, props, {
-    searchValue: filterValue,
-    onFilterChange: onFilterChange,
-    placeholder: 'Find a Request'
-  }));
-};
-
-RequestsFilterToolbar.propTypes = {
-  onFilterChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired,
-  filterValue: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string
-};
-/* harmony default export */ __webpack_exports__["default"] = (RequestsFilterToolbar);
-
-/***/ }),
-
 /***/ "./src/presentational-components/shared/filter-toolbar-item.js":
 /*!*********************************************************************!*\
   !*** ./src/presentational-components/shared/filter-toolbar-item.js ***!
@@ -1146,9 +1083,7 @@ var FilterToolbarItem = function FilterToolbarItem(_ref) {
   var searchValue = _ref.searchValue,
       onFilterChange = _ref.onFilterChange,
       placeholder = _ref.placeholder;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__["ToolbarGroup"], {
-    className: "searchToolbar"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "pf-c-input-group"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_2__["TextInput"], {
     placeholder: placeholder,
@@ -1184,14 +1119,12 @@ FilterToolbarItem.defaultProps = {
 /*!*********************************************************************!*\
   !*** ./src/presentational-components/shared/loader-placeholders.js ***!
   \*********************************************************************/
-/*! exports provided: CardLoader, WorkflowLoader, NavLoader, AppPlaceholder */
+/*! exports provided: CardLoader, AppPlaceholder */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardLoader", function() { return CardLoader; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WorkflowLoader", function() { return WorkflowLoader; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavLoader", function() { return NavLoader; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppPlaceholder", function() { return AppPlaceholder; });
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
@@ -1251,79 +1184,6 @@ CardLoader.propTypes = {
   items: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.number
 };
 CardLoader.defaultProps = {
-  items: 1
-};
-var WorkflowLoader = function WorkflowLoader(_ref2) {
-  var items = _ref2.items,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2___default()(_ref2, ["items"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_6__["Grid"], {
-    gutter: "md"
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_6__["GridItem"], {
-    sm: 12
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_content_loader__WEBPACK_IMPORTED_MODULE_4__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-    height: 16,
-    width: 300,
-    speed: 2,
-    primaryColor: "#FFFFFF",
-    secondaryColor: "#FFFFFF"
-  }, props), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("rect", {
-    x: "0",
-    y: "0",
-    rx: "0",
-    ry: "0",
-    width: "420",
-    height: "16"
-  }))), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_6__["GridItem"], {
-    sm: 12,
-    style: {
-      paddingLeft: 16,
-      paddingRight: 16
-    }
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(CardLoader, {
-    items: items
-  })));
-};
-WorkflowLoader.propTypes = {
-  items: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.number
-};
-WorkflowLoader.defaultProps = {
-  items: 1
-};
-var NavLoader = function NavLoader(_ref3) {
-  var items = _ref3.items,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_2___default()(_ref3, ["items"]);
-
-  return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(Array(items)).map(function (_item, index) {
-    return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_6__["NavItem"], {
-      key: "loader-placeholder-".concat(index),
-      style: {
-        cursor: 'pointer'
-      }
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
-      style: {
-        overflow: 'hidden'
-      }
-    }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_content_loader__WEBPACK_IMPORTED_MODULE_4__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({
-      height: 16,
-      width: 300,
-      speed: 2,
-      primaryColor: "#f3f3f3",
-      secondaryColor: "#ecebeb"
-    }, props), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("rect", {
-      x: "0",
-      y: "0",
-      rx: "0",
-      ry: "0",
-      width: "420",
-      height: "20"
-    }))));
-  });
-};
-NavLoader.propTypes = {
-  items: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.number
-};
-NavLoader.defaultProps = {
   items: 1
 };
 var AppPlaceholder = function AppPlaceholder(props) {
@@ -1462,64 +1322,6 @@ Pf4SelectWrapper.propTypes = {
 
 /***/ }),
 
-/***/ "./src/presentational-components/shared/toolbarschema.scss":
-/*!*****************************************************************!*\
-  !*** ./src/presentational-components/shared/toolbarschema.scss ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "./src/presentational-components/workflow/workflows-filter-toolbar.js":
-/*!****************************************************************************!*\
-  !*** ./src/presentational-components/workflow/workflows-filter-toolbar.js ***!
-  \****************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/@babel/runtime/helpers/extends.js");
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/objectWithoutProperties.js");
-/* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../shared/filter-toolbar-item */ "./src/presentational-components/shared/filter-toolbar-item.js");
-/* harmony import */ var _shared_toolbarschema_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../shared/toolbarschema.scss */ "./src/presentational-components/shared/toolbarschema.scss");
-/* harmony import */ var _shared_toolbarschema_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_shared_toolbarschema_scss__WEBPACK_IMPORTED_MODULE_5__);
-
-
-
-
-
-
-
-var WorkflowsFilterToolbar = function WorkflowsFilterToolbar(_ref) {
-  var onFilterChange = _ref.onFilterChange,
-      filterValue = _ref.filterValue,
-      props = _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1___default()(_ref, ["onFilterChange", "filterValue"]);
-
-  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_4__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, props, {
-    searchValue: filterValue,
-    onFilterChange: onFilterChange,
-    placeholder: 'Find a Workflow'
-  }));
-};
-
-WorkflowsFilterToolbar.propTypes = {
-  onFilterChange: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.func.isRequired,
-  filterValue: prop_types__WEBPACK_IMPORTED_MODULE_3___default.a.string
-};
-/* harmony default export */ __webpack_exports__["default"] = (WorkflowsFilterToolbar);
-
-/***/ }),
-
 /***/ "./src/redux/action-types.js":
 /*!***********************************!*\
   !*** ./src/redux/action-types.js ***!
@@ -1640,12 +1442,11 @@ var fetchRequests = function fetchRequests() {
 /*!***********************************************!*\
   !*** ./src/redux/actions/workflow-actions.js ***!
   \***********************************************/
-/*! exports provided: doFetchWorkflows, fetchWorkflows, fetchWorkflow, addWorkflow, updateWorkflow, removeWorkflow */
+/*! exports provided: fetchWorkflows, fetchWorkflow, addWorkflow, updateWorkflow, removeWorkflow */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "doFetchWorkflows", function() { return doFetchWorkflows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchWorkflows", function() { return fetchWorkflows; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchWorkflow", function() { return fetchWorkflow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addWorkflow", function() { return addWorkflow; });
@@ -1655,21 +1456,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_workflow_workflow_helper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helpers/workflow/workflow-helper */ "./src/helpers/workflow/workflow-helper.js");
 
 
-var doFetchWorkflows = function doFetchWorkflows() {
+var fetchWorkflows = function fetchWorkflows() {
   var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["FETCH_WORKFLOWS"],
     payload: _helpers_workflow_workflow_helper__WEBPACK_IMPORTED_MODULE_1__["fetchWorkflowsWithGroups"](options)
-  };
-};
-var fetchWorkflows = function fetchWorkflows(options) {
-  return function (dispatch, getState) {
-    var _getState = getState(),
-        isLoading = _getState.workflowReducer.isLoading;
-
-    if (!isLoading) {
-      return dispatch(doFetchWorkflows(options));
-    }
   };
 };
 var fetchWorkflow = function fetchWorkflow(apiProps) {
@@ -1913,9 +1704,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @patternfly/react-core */ "./node_modules/@patternfly/react-core/dist/esm/index.js");
-/* harmony import */ var _apptabs_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./apptabs.scss */ "./src/smart-components/app-tabs/apptabs.scss");
-/* harmony import */ var _apptabs_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_apptabs_scss__WEBPACK_IMPORTED_MODULE_4__);
-
 
 
 
@@ -1931,8 +1719,7 @@ var tabItems = [{
 }];
 
 var AppTabs = function AppTabs(_ref) {
-  var children = _ref.children,
-      push = _ref.history.push,
+  var push = _ref.history.push,
       pathname = _ref.location.pathname;
   var activeTab = tabItems.find(function (_ref2) {
     var name = _ref2.name;
@@ -1943,9 +1730,8 @@ var AppTabs = function AppTabs(_ref) {
     return push(tabItems[tabIndex].name);
   };
 
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "ins-tabs"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__["Tabs"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_3__["Tabs"], {
+    className: "pf-u-mt-md",
     activeKey: activeTab ? activeTab.eventKey : 0,
     onSelect: handleTabClick
   }, tabItems.map(function (item) {
@@ -1955,7 +1741,7 @@ var AppTabs = function AppTabs(_ref) {
       eventKey: item.eventKey,
       name: item.name
     });
-  }))), children);
+  }));
 };
 
 AppTabs.propTypes = {
@@ -1968,17 +1754,6 @@ AppTabs.propTypes = {
   })
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(AppTabs));
-
-/***/ }),
-
-/***/ "./src/smart-components/app-tabs/apptabs.scss":
-/*!****************************************************!*\
-  !*** ./src/smart-components/app-tabs/apptabs.scss ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
 
 /***/ }),
 
@@ -2042,7 +1817,7 @@ var FormRenderer = function FormRenderer(_ref) {
 
 FormRenderer.propTypes = {
   componentMapper: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.object,
-  formContainer: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.oneOf('default', 'modal')
+  formContainer: prop_types__WEBPACK_IMPORTED_MODULE_5___default.a.oneOf(['default', 'modal'])
 };
 FormRenderer.defaultProps = {
   componentMapper: {},
@@ -2297,15 +2072,13 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      if (this.props.isLoading) {
+      if (this.props.isLoading || this.props.items.length === 0) {
         return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_10__["PageHeader"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_10__["PageHeaderTitle"], {
           title: this.props.noItems
         }));
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", null, this.props.isLoading && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("span", {
-        color: '#00b9e4'
-      }, " Loading...")), this.props.items && this.props.items.length > 0 && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_11__["DataList"], {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8___default.a.Fragment, null, this.props.items && this.props.items.length > 0 && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_11__["DataList"], {
         "aria-label": "Expandable data list"
       }, this.props.items.map(function (item) {
         return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_request__WEBPACK_IMPORTED_MODULE_12__["default"], {
@@ -2488,17 +2261,6 @@ Request.propTypes = {
 
 /***/ }),
 
-/***/ "./src/smart-components/request/request.scss":
-/*!***************************************************!*\
-  !*** ./src/smart-components/request/request.scss ***!
-  \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/smart-components/request/requests.js":
 /*!**************************************************!*\
   !*** ./src/smart-components/request/requests.js ***!
@@ -2531,16 +2293,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @patternfly/react-core */ "./node_modules/@patternfly/react-core/dist/esm/index.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components */ "./node_modules/@red-hat-insights/insights-frontend-components/index.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _request_list__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./request-list */ "./src/smart-components/request/request-list.js");
-/* harmony import */ var _presentational_components_request_requests_filter_toolbar__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../presentational-components/request/requests-filter-toolbar */ "./src/presentational-components/request/requests-filter-toolbar.js");
-/* harmony import */ var _redux_actions_request_actions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../redux/actions/request-actions */ "./src/redux/actions/request-actions.js");
-/* harmony import */ var _add_request_modal__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./add-request-modal */ "./src/smart-components/request/add-request-modal.js");
-/* harmony import */ var _request_scss__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./request.scss */ "./src/smart-components/request/request.scss");
-/* harmony import */ var _request_scss__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_request_scss__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../../helpers/shared/helpers */ "./src/helpers/shared/helpers.js");
-
+/* harmony import */ var _request_list__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./request-list */ "./src/smart-components/request/request-list.js");
+/* harmony import */ var _presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../presentational-components/shared/filter-toolbar-item */ "./src/presentational-components/shared/filter-toolbar-item.js");
+/* harmony import */ var _redux_actions_request_actions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../redux/actions/request-actions */ "./src/redux/actions/request-actions.js");
+/* harmony import */ var _add_request_modal__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./add-request-modal */ "./src/smart-components/request/add-request-modal.js");
+/* harmony import */ var _helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../helpers/shared/helpers */ "./src/helpers/shared/helpers.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/TableToolbar */ "./node_modules/@red-hat-insights/insights-frontend-components/components/TableToolbar.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_18__);
 
 
 
@@ -2602,17 +2361,20 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.fetchData();
-      Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_19__["scrollToTop"])();
+      Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_17__["scrollToTop"])();
     }
   }, {
     key: "renderToolbar",
     value: function renderToolbar() {
-      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_12__["Toolbar"], {
-        className: "searchToolbar"
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_presentational_components_request_requests_filter_toolbar__WEBPACK_IMPORTED_MODULE_15__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_18__["TableToolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_12__["Level"], {
+        style: {
+          flex: 1
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_12__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_12__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_12__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_14__["default"], {
         onFilterChange: this.onFilterChange,
-        filterValue: this.state.filterValue
-      }));
+        searchValue: this.state.filterValue,
+        placeholder: "Find a Request"
+      }))))));
     }
   }, {
     key: "render",
@@ -2624,12 +2386,10 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
         exact: true,
         path: "/requests/edit/:id",
-        component: _add_request_modal__WEBPACK_IMPORTED_MODULE_17__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_13__["Section"], {
-        type: "content"
-      }, this.renderToolbar(), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_request_list__WEBPACK_IMPORTED_MODULE_14__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, filteredItems, {
+        component: _add_request_modal__WEBPACK_IMPORTED_MODULE_16__["default"]
+      }), this.renderToolbar(), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_request_list__WEBPACK_IMPORTED_MODULE_13__["default"], _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, filteredItems, {
         noItems: 'No Requests'
-      }))));
+      })));
     }
   }]);
 
@@ -2648,7 +2408,7 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchRequests: function fetchRequests(apiProps) {
-      return dispatch(Object(_redux_actions_request_actions__WEBPACK_IMPORTED_MODULE_16__["fetchRequests"])(apiProps));
+      return dispatch(Object(_redux_actions_request_actions__WEBPACK_IMPORTED_MODULE_15__["fetchRequests"])(apiProps));
     }
   };
 };
@@ -2917,9 +2677,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
 /* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @patternfly/react-core */ "./node_modules/@patternfly/react-core/dist/esm/index.js");
 /* harmony import */ var _redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../redux/actions/workflow-actions */ "./src/redux/actions/workflow-actions.js");
-/* harmony import */ var _workflow_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./workflow.scss */ "./src/smart-components/workflow/workflow.scss");
-/* harmony import */ var _workflow_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_workflow_scss__WEBPACK_IMPORTED_MODULE_7__);
-
 
 
 
@@ -3124,17 +2881,6 @@ var createInitialRows = function createInitialRows(data) {
 
 /***/ }),
 
-/***/ "./src/smart-components/workflow/workflow.scss":
-/*!*****************************************************!*\
-  !*** ./src/smart-components/workflow/workflow.scss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/smart-components/workflow/workflows.js":
 /*!****************************************************!*\
   !*** ./src/smart-components/workflow/workflows.js ***!
@@ -3169,22 +2915,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_isEqual__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lodash/isEqual */ "./node_modules/lodash/isEqual.js");
 /* harmony import */ var lodash_isEqual__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(lodash_isEqual__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var awesome_debounce_promise__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! awesome-debounce-promise */ "./node_modules/awesome-debounce-promise/dist/index.es.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components */ "./node_modules/@red-hat-insights/insights-frontend-components/index.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @patternfly/react-core */ "./node_modules/@patternfly/react-core/dist/esm/index.js");
-/* harmony import */ var _patternfly_react_table__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @patternfly/react-table */ "./node_modules/@patternfly/react-table/dist/esm/index.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/Pagination */ "./node_modules/@red-hat-insights/insights-frontend-components/components/Pagination.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../../redux/actions/workflow-actions */ "./src/redux/actions/workflow-actions.js");
-/* harmony import */ var _add_workflow_modal__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./add-workflow-modal */ "./src/smart-components/workflow/add-workflow-modal.js");
-/* harmony import */ var _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./remove-workflow-modal */ "./src/smart-components/workflow/remove-workflow-modal.js");
-/* harmony import */ var _helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../helpers/shared/helpers */ "./src/helpers/shared/helpers.js");
-/* harmony import */ var _redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ../../redux/actions/group-actions */ "./src/redux/actions/group-actions.js");
-/* harmony import */ var _workflow_table_helpers__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./workflow-table-helpers */ "./src/smart-components/workflow/workflow-table-helpers.js");
-/* harmony import */ var _presentational_components_workflow_workflows_filter_toolbar__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../presentational-components/workflow/workflows-filter-toolbar */ "./src/presentational-components/workflow/workflows-filter-toolbar.js");
-/* harmony import */ var _workflow_scss__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./workflow.scss */ "./src/smart-components/workflow/workflow.scss");
-/* harmony import */ var _workflow_scss__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_workflow_scss__WEBPACK_IMPORTED_MODULE_25__);
-
+/* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @patternfly/react-core */ "./node_modules/@patternfly/react-core/dist/esm/index.js");
+/* harmony import */ var _patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @patternfly/react-table */ "./node_modules/@patternfly/react-table/dist/esm/index.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/Pagination */ "./node_modules/@red-hat-insights/insights-frontend-components/components/Pagination.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../redux/actions/workflow-actions */ "./src/redux/actions/workflow-actions.js");
+/* harmony import */ var _add_workflow_modal__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./add-workflow-modal */ "./src/smart-components/workflow/add-workflow-modal.js");
+/* harmony import */ var _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./remove-workflow-modal */ "./src/smart-components/workflow/remove-workflow-modal.js");
+/* harmony import */ var _helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../helpers/shared/helpers */ "./src/helpers/shared/helpers.js");
+/* harmony import */ var _redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../redux/actions/group-actions */ "./src/redux/actions/group-actions.js");
+/* harmony import */ var _workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./workflow-table-helpers */ "./src/smart-components/workflow/workflow-table-helpers.js");
+/* harmony import */ var _presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../presentational-components/shared/filter-toolbar-item */ "./src/presentational-components/shared/filter-toolbar-item.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/TableToolbar */ "./node_modules/@red-hat-insights/insights-frontend-components/components/TableToolbar.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24__);
 
 
 
@@ -3212,7 +2955,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var columns = [{
   title: 'Name',
-  cellFormatters: [_patternfly_react_table__WEBPACK_IMPORTED_MODULE_16__["expandable"]]
+  cellFormatters: [_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["expandable"]]
 }, 'Description', 'Groups'];
 
 var Workflows =
@@ -3245,7 +2988,7 @@ function (_Component) {
 
       _this.props.fetchWorkflows().then(function () {
         return _this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_23__["createInitialRows"])(_this.props.workflows)
+          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(_this.props.workflows)
         });
       });
     });
@@ -3256,14 +2999,14 @@ function (_Component) {
         limit: limit
       }).then(function () {
         return _this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_23__["createInitialRows"])(_this.props.workflows)
+          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(_this.props.workflows)
         });
       });
     });
 
     _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "handleSetPage", function (number, debounce) {
       var options = {
-        offset: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_21__["getNewPage"])(number, _this.props.pagination.limit),
+        offset: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__["getNewPage"])(number, _this.props.pagination.limit),
         limit: _this.props.pagination.limit
       };
 
@@ -3277,7 +3020,7 @@ function (_Component) {
 
       return request().then(function () {
         return _this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_23__["createInitialRows"])(_this.props.workflows)
+          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(_this.props.workflows)
         });
       });
     });
@@ -3357,6 +3100,9 @@ function (_Component) {
         }
       }, {
         title: 'Delete',
+        style: {
+          color: 'var(--pf-global--danger-color--100)'
+        },
         onClick: function onClick(event, rowId, workflow) {
           return _this.props.history.push("/workflows/remove/".concat(workflow.id));
         }
@@ -3370,38 +3116,41 @@ function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.fetchData();
-      Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_21__["scrollToTop"])();
+      Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__["scrollToTop"])();
     }
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
       if (!lodash_isEqual__WEBPACK_IMPORTED_MODULE_12___default()(this.props.workflows, prevProps.workflows)) {
         this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_23__["createInitialRows"])(this.props.workflows)
+          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(this.props.workflows)
         });
       }
     }
   }, {
     key: "renderToolbar",
     value: function renderToolbar() {
-      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["Toolbar"], {
-        className: "searchToolbar"
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_presentational_components_workflow_workflows_filter_toolbar__WEBPACK_IMPORTED_MODULE_24__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24__["TableToolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Level"], {
+        style: {
+          flex: 1
+        }
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["LevelItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_23__["default"], {
         onFilterChange: this.onFilterChange,
-        filterValue: this.state.filterValue
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Link"], {
+        searchValue: this.state.filterValue,
+        placeholder: "Find a Workflow"
+      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Link"], {
         to: "/workflows/add-workflow"
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["Button"], {
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Button"], {
         variant: "primary",
         "aria-label": "Create Workflow"
-      }, "Create Workflow")))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_15__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_17__["Pagination"], {
+      }, "Create Workflow")))))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["LevelItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16__["Pagination"], {
         itemsPerPage: this.props.pagination.limit || 50,
         numberOfItems: this.props.pagination.count || 50,
         onPerPageSelect: this.handleOnPerPageSelect,
-        page: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_21__["getCurrentPage"])(this.props.pagination.limit, this.props.pagination.offset),
+        page: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__["getCurrentPage"])(this.props.pagination.limit, this.props.pagination.offset),
         onSetPage: this.handleSetPage,
         direction: "down"
-      }))));
+      })))))));
     }
   }, {
     key: "render",
@@ -3409,25 +3158,23 @@ function (_Component) {
       return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
         exact: true,
         path: "/workflows/add-workflow",
-        component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_19__["default"]
+        component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_18__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
         exact: true,
         path: "/workflows/edit/:id",
-        component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_19__["default"]
+        component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_18__["default"]
       }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
         exact: true,
         path: "/workflows/remove/:id",
-        component: _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_20__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components__WEBPACK_IMPORTED_MODULE_14__["Section"], {
-        type: "content"
-      }, this.renderToolbar(), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_16__["Table"], {
+        component: _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_19__["default"]
+      }), this.renderToolbar(), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["Table"], {
         "aria-label": "Approval Workflows table",
         onCollapse: this.onCollapse,
         rows: this.state.rows,
         cells: columns,
         onSelect: this.selectRow,
         actionResolver: this.actionResolver
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_16__["TableHeader"], null), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_16__["TableBody"], null))));
+      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["TableHeader"], null), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["TableBody"], null)));
     }
   }]);
 
@@ -3453,10 +3200,10 @@ var mapStateToProps = function mapStateToProps(_ref7) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchWorkflows: function fetchWorkflows(apiProps) {
-      return dispatch(Object(_redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_18__["fetchWorkflows"])(apiProps));
+      return dispatch(Object(_redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_17__["fetchWorkflows"])(apiProps));
     },
     fetchRbacGroups: function fetchRbacGroups(apiProps) {
-      return dispatch(Object(_redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_22__["fetchRbacGroups"])(apiProps));
+      return dispatch(Object(_redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_21__["fetchRbacGroups"])(apiProps));
     }
   };
 };
