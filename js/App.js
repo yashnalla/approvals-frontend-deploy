@@ -425,7 +425,7 @@ pathName.shift();
 var release = '/';
 
 if (pathName[0] === 'beta') {
-  release = "/".concat(pathName.shift());
+  release = "/".concat(pathName.shift(), "/");
 }
 
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_3__["Provider"], {
