@@ -2866,6 +2866,7 @@ var createInitialRows = function createInitialRows(data) {
     return [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(acc), [{
       id: id,
       isOpen: false,
+      selected: false,
       cells: [name, description, group_names.length]
     }, {
       parent: key * 2,
@@ -2892,49 +2893,28 @@ var createInitialRows = function createInitialRows(data) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/objectSpread */ "./node_modules/@babel/runtime/helpers/objectSpread.js");
 /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
-/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
-/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js");
-/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/getPrototypeOf.js");
-/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/assertThisInitialized.js");
-/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/inherits.js");
-/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var lodash_isEqual__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! lodash/isEqual */ "./node_modules/lodash/isEqual.js");
-/* harmony import */ var lodash_isEqual__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(lodash_isEqual__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var awesome_debounce_promise__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! awesome-debounce-promise */ "./node_modules/awesome-debounce-promise/dist/index.es.js");
-/* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @patternfly/react-core */ "./node_modules/@patternfly/react-core/dist/esm/index.js");
-/* harmony import */ var _patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @patternfly/react-table */ "./node_modules/@patternfly/react-table/dist/esm/index.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/Pagination */ "./node_modules/@red-hat-insights/insights-frontend-components/components/Pagination.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../../redux/actions/workflow-actions */ "./src/redux/actions/workflow-actions.js");
-/* harmony import */ var _add_workflow_modal__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./add-workflow-modal */ "./src/smart-components/workflow/add-workflow-modal.js");
-/* harmony import */ var _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./remove-workflow-modal */ "./src/smart-components/workflow/remove-workflow-modal.js");
-/* harmony import */ var _helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ../../helpers/shared/helpers */ "./src/helpers/shared/helpers.js");
-/* harmony import */ var _redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../redux/actions/group-actions */ "./src/redux/actions/group-actions.js");
-/* harmony import */ var _workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./workflow-table-helpers */ "./src/smart-components/workflow/workflow-table-helpers.js");
-/* harmony import */ var _presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../presentational-components/shared/filter-toolbar-item */ "./src/presentational-components/shared/filter-toolbar-item.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/TableToolbar */ "./node_modules/@red-hat-insights/insights-frontend-components/components/TableToolbar.js");
-/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24__);
-
-
-
-
-
-
-
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var awesome_debounce_promise__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! awesome-debounce-promise */ "./node_modules/awesome-debounce-promise/dist/index.es.js");
+/* harmony import */ var _patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @patternfly/react-core */ "./node_modules/@patternfly/react-core/dist/esm/index.js");
+/* harmony import */ var _patternfly_react_table__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @patternfly/react-table */ "./node_modules/@patternfly/react-table/dist/esm/index.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/Pagination */ "./node_modules/@red-hat-insights/insights-frontend-components/components/Pagination.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var _redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../redux/actions/workflow-actions */ "./src/redux/actions/workflow-actions.js");
+/* harmony import */ var _add_workflow_modal__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./add-workflow-modal */ "./src/smart-components/workflow/add-workflow-modal.js");
+/* harmony import */ var _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./remove-workflow-modal */ "./src/smart-components/workflow/remove-workflow-modal.js");
+/* harmony import */ var _helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../helpers/shared/helpers */ "./src/helpers/shared/helpers.js");
+/* harmony import */ var _redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../redux/actions/group-actions */ "./src/redux/actions/group-actions.js");
+/* harmony import */ var _workflow_table_helpers__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./workflow-table-helpers */ "./src/smart-components/workflow/workflow-table-helpers.js");
+/* harmony import */ var _presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../../presentational-components/shared/filter-toolbar-item */ "./src/presentational-components/shared/filter-toolbar-item.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @red-hat-insights/insights-frontend-components/components/TableToolbar */ "./node_modules/@red-hat-insights/insights-frontend-components/components/TableToolbar.js");
+/* harmony import */ var _red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_17__);
 
 
 
@@ -2955,231 +2935,165 @@ __webpack_require__.r(__webpack_exports__);
 
 var columns = [{
   title: 'Name',
-  cellFormatters: [_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["expandable"]]
+  cellFormatters: [_patternfly_react_table__WEBPACK_IMPORTED_MODULE_8__["expandable"]]
 }, 'Description', 'Groups'];
 
-var Workflows =
-/*#__PURE__*/
-function (_Component) {
-  _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_6___default()(Workflows, _Component);
+var Workflows = function Workflows(_ref) {
+  var fetchRbacGroups = _ref.fetchRbacGroups,
+      fetchWorkflows = _ref.fetchWorkflows,
+      pagination = _ref.pagination,
+      workflows = _ref.workflows,
+      history = _ref.history;
 
-  function Workflows() {
-    var _getPrototypeOf2;
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(''),
+      _useState2 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState, 2),
+      filterValue = _useState2[0],
+      setFilterValue = _useState2[1];
 
-    var _this;
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([]),
+      _useState4 = _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1___default()(_useState3, 2),
+      rows = _useState4[0],
+      setRows = _useState4[1];
 
-    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, Workflows);
-
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, (_getPrototypeOf2 = _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4___default()(Workflows)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "state", {
-      filteredItems: [],
-      isOpen: false,
-      filterValue: '',
-      rows: []
+  var fetchData = function fetchData() {
+    fetchRbacGroups();
+    fetchWorkflows().then(function (_ref2) {
+      var data = _ref2.value.data;
+      return setRows(Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_15__["createInitialRows"])(data));
     });
+  };
 
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "fetchData", function () {
-      _this.props.fetchRbacGroups();
+  Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+    fetchData();
+    Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_13__["scrollToTop"])();
+  }, []);
 
-      _this.props.fetchWorkflows().then(function () {
-        return _this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(_this.props.workflows)
-        });
+  var handleOnPerPageSelect = function handleOnPerPageSelect(limit) {
+    return fetchWorkflows({
+      offset: pagination.offset,
+      limit: limit
+    }).then(function () {
+      return setRows(Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_15__["createInitialRows"])(workflows));
+    });
+  };
+
+  var handleSetPage = function handleSetPage(number, debounce) {
+    var options = {
+      offset: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_13__["getNewPage"])(number, pagination.limit),
+      limit: pagination.limit
+    };
+
+    var request = function request() {
+      return fetchWorkflows(options);
+    };
+
+    return debounce ? Object(awesome_debounce_promise__WEBPACK_IMPORTED_MODULE_6__["default"])(request, 250)() : request().then(function (_ref3) {
+      var data = _ref3.value.data;
+      return setRows(Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_15__["createInitialRows"])(data));
+    });
+  };
+
+  var setOpen = function setOpen(data, id) {
+    return data.map(function (row) {
+      return row.id === id ? _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row, {
+        isOpen: !row.isOpen
+      }) : _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row);
+    });
+  };
+
+  var setSelected = function setSelected(data, id) {
+    return data.map(function (row) {
+      return row.id === id ? _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row, {
+        selected: !row.selected
+      }) : _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row);
+    });
+  };
+
+  var onCollapse = function onCollapse(_event, _index, _isOpen, _ref4) {
+    var id = _ref4.id;
+    return setRows(function (rows) {
+      return setOpen(rows, id);
+    });
+  };
+
+  var selectRow = function selectRow(_event, selected, index) {
+    var _ref5 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},
+        id = _ref5.id;
+
+    return index === -1 ? setRows(rows.map(function (row) {
+      return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row, {
+        selected: selected
       });
+    })) : setRows(function (rows) {
+      return setSelected(rows, id);
     });
+  };
 
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "handleOnPerPageSelect", function (limit) {
-      return _this.props.fetchWorkflows({
-        offset: _this.props.pagination.offset,
-        limit: limit
-      }).then(function () {
-        return _this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(_this.props.workflows)
-        });
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "handleSetPage", function (number, debounce) {
-      var options = {
-        offset: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__["getNewPage"])(number, _this.props.pagination.limit),
-        limit: _this.props.pagination.limit
-      };
-
-      var request = function request() {
-        return _this.props.fetchWorkflows(options);
-      };
-
-      if (debounce) {
-        return Object(awesome_debounce_promise__WEBPACK_IMPORTED_MODULE_13__["default"])(request, 250)();
+  var renderToolbar = function renderToolbar() {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_17__["TableToolbar"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["Level"], {
+      style: {
+        flex: 1
       }
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["LevelItem"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_16__["default"], {
+      onFilterChange: function onFilterChange(value) {
+        return setFilterValue(value);
+      },
+      searchValue: filterValue,
+      placeholder: "Find a Workflow"
+    }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Link"], {
+      to: "/workflows/add-workflow"
+    }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["Button"], {
+      variant: "primary",
+      "aria-label": "Create Workflow"
+    }, "Create Workflow")))))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["LevelItem"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_7__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_9__["Pagination"], {
+      itemsPerPage: pagination.limit || 50,
+      numberOfItems: pagination.count || 50,
+      onPerPageSelect: handleOnPerPageSelect,
+      page: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_13__["getCurrentPage"])(pagination.limit, pagination.offset),
+      onSetPage: handleSetPage,
+      direction: "down"
+    })))))));
+  };
 
-      return request().then(function () {
-        return _this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(_this.props.workflows)
-        });
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "setOpen", function (data, id) {
-      return data.map(function (row) {
-        if (row.id === id) {
-          return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row, {
-            isOpen: !row.isOpen
-          });
-        }
-
-        return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row);
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "setSelected", function (data, id) {
-      return data.map(function (row) {
-        if (row.id === id) {
-          return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row, {
-            selected: !row.selected
-          });
-        }
-
-        return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row);
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "onFilterChange", function (filterValue) {
-      return _this.setState({
-        filterValue: filterValue
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "onCollapse", function (_event, _index, _isOpen, _ref) {
-      var id = _ref.id;
-      return _this.setState(function (_ref2) {
-        var rows = _ref2.rows;
-        return {
-          rows: _this.setOpen(rows, id)
-        };
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "selectRow", function (_event, selected, index) {
-      var _ref3 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {},
-          id = _ref3.id;
-
-      return index === -1 ? _this.setState(function (_ref4) {
-        var rows = _ref4.rows;
-        return {
-          rows: rows.map(function (row) {
-            return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_0___default()({}, row, {
-              selected: selected
-            });
-          })
-        };
-      }) : _this.setState(function (_ref5) {
-        var rows = _ref5.rows;
-        return {
-          rows: _this.setSelected(rows, id)
-        };
-      });
-    });
-
-    _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_7___default()(_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_5___default()(_this), "actionResolver", function (workflowData, _ref6) {
-      var rowIndex = _ref6.rowIndex;
-
-      if (rowIndex === 1) {
-        return null;
+  var actionResolver = function actionResolver(workflowData, _ref6) {
+    var rowIndex = _ref6.rowIndex;
+    return rowIndex === 1 ? null : [{
+      title: 'Edit',
+      onClick: function onClick(event, rowId, workflow) {
+        return history.push("/workflows/edit/".concat(workflow.id));
       }
-
-      return [{
-        title: 'Edit',
-        onClick: function onClick(event, rowId, workflow) {
-          return _this.props.history.push("/workflows/edit/".concat(workflow.id));
-        }
-      }, {
-        title: 'Delete',
-        style: {
-          color: 'var(--pf-global--danger-color--100)'
-        },
-        onClick: function onClick(event, rowId, workflow) {
-          return _this.props.history.push("/workflows/remove/".concat(workflow.id));
-        }
-      }];
-    });
-
-    return _this;
-  }
-
-  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(Workflows, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.fetchData();
-      Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__["scrollToTop"])();
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      if (!lodash_isEqual__WEBPACK_IMPORTED_MODULE_12___default()(this.props.workflows, prevProps.workflows)) {
-        this.setState({
-          rows: Object(_workflow_table_helpers__WEBPACK_IMPORTED_MODULE_22__["createInitialRows"])(this.props.workflows)
-        });
+    }, {
+      title: 'Delete',
+      style: {
+        color: 'var(--pf-global--danger-color--100)'
+      },
+      onClick: function onClick(event, rowId, workflow) {
+        return history.push("/workflows/remove/".concat(workflow.id));
       }
-    }
-  }, {
-    key: "renderToolbar",
-    value: function renderToolbar() {
-      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_TableToolbar__WEBPACK_IMPORTED_MODULE_24__["TableToolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Level"], {
-        style: {
-          flex: 1
-        }
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["LevelItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_presentational_components_shared_filter_toolbar_item__WEBPACK_IMPORTED_MODULE_23__["default"], {
-        onFilterChange: this.onFilterChange,
-        searchValue: this.state.filterValue,
-        placeholder: "Find a Workflow"
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Link"], {
-        to: "/workflows/add-workflow"
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Button"], {
-        variant: "primary",
-        "aria-label": "Create Workflow"
-      }, "Create Workflow")))))), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["LevelItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["Toolbar"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarGroup"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_core__WEBPACK_IMPORTED_MODULE_14__["ToolbarItem"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_red_hat_insights_insights_frontend_components_components_Pagination__WEBPACK_IMPORTED_MODULE_16__["Pagination"], {
-        itemsPerPage: this.props.pagination.limit || 50,
-        numberOfItems: this.props.pagination.count || 50,
-        onPerPageSelect: this.handleOnPerPageSelect,
-        page: Object(_helpers_shared_helpers__WEBPACK_IMPORTED_MODULE_20__["getCurrentPage"])(this.props.pagination.limit, this.props.pagination.offset),
-        onSetPage: this.handleSetPage,
-        direction: "down"
-      })))))));
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_8__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
-        exact: true,
-        path: "/workflows/add-workflow",
-        component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_18__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
-        exact: true,
-        path: "/workflows/edit/:id",
-        component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_18__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_11__["Route"], {
-        exact: true,
-        path: "/workflows/remove/:id",
-        component: _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_19__["default"]
-      }), this.renderToolbar(), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["Table"], {
-        "aria-label": "Approval Workflows table",
-        onCollapse: this.onCollapse,
-        rows: this.state.rows,
-        cells: columns,
-        onSelect: this.selectRow,
-        actionResolver: this.actionResolver
-      }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["TableHeader"], null), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_15__["TableBody"], null)));
-    }
-  }]);
+    }];
+  };
 
-  return Workflows;
-}(react__WEBPACK_IMPORTED_MODULE_8__["Component"]);
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_2__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+    exact: true,
+    path: "/workflows/add-workflow",
+    component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+    exact: true,
+    path: "/workflows/edit/:id",
+    component: _add_workflow_modal__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
+    exact: true,
+    path: "/workflows/remove/:id",
+    component: _remove_workflow_modal__WEBPACK_IMPORTED_MODULE_12__["default"]
+  }), renderToolbar(), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_8__["Table"], {
+    "aria-label": "Approval Workflows table",
+    onCollapse: onCollapse,
+    rows: rows,
+    cells: columns,
+    onSelect: selectRow,
+    actionResolver: actionResolver
+  }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_8__["TableHeader"], null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_patternfly_react_table__WEBPACK_IMPORTED_MODULE_8__["TableBody"], null)));
+};
 
 var mapStateToProps = function mapStateToProps(_ref7) {
   var _ref7$workflowReducer = _ref7.workflowReducer,
@@ -3200,37 +3114,37 @@ var mapStateToProps = function mapStateToProps(_ref7) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchWorkflows: function fetchWorkflows(apiProps) {
-      return dispatch(Object(_redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_17__["fetchWorkflows"])(apiProps));
+      return dispatch(Object(_redux_actions_workflow_actions__WEBPACK_IMPORTED_MODULE_10__["fetchWorkflows"])(apiProps));
     },
     fetchRbacGroups: function fetchRbacGroups(apiProps) {
-      return dispatch(Object(_redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_21__["fetchRbacGroups"])(apiProps));
+      return dispatch(Object(_redux_actions_group_actions__WEBPACK_IMPORTED_MODULE_14__["fetchRbacGroups"])(apiProps));
     }
   };
 };
 
 Workflows.propTypes = {
-  history: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.shape({
-    goBack: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.func.isRequired,
-    push: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.func.isRequired
+  history: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.shape({
+    goBack: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired,
+    push: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired
   }).isRequired,
-  filteredItems: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.array,
-  workflows: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.array,
-  platforms: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.array,
-  isLoading: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.bool,
-  searchFilter: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.string,
-  fetchWorkflows: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.func.isRequired,
-  fetchRbacGroups: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.func.isRequired,
-  pagination: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.shape({
-    limit: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.number.isRequired,
-    offset: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.number.isRequired,
-    count: prop_types__WEBPACK_IMPORTED_MODULE_10___default.a.number.isRequired
+  filteredItems: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  workflows: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  platforms: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array,
+  isLoading: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.bool,
+  searchFilter: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.string,
+  fetchWorkflows: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired,
+  fetchRbacGroups: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired,
+  pagination: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.shape({
+    limit: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number.isRequired,
+    offset: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number.isRequired,
+    count: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.number.isRequired
   })
 };
 Workflows.defaultProps = {
   workflows: [],
   pagination: {}
 };
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_9__["connect"])(mapStateToProps, mapDispatchToProps)(Workflows));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(Workflows));
 
 /***/ }),
 
